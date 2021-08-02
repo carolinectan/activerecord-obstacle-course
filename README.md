@@ -23,6 +23,15 @@ rspec
 # you should see several passing tests, and a few skipped tests
 ```
 
+```
+remove Gemfile.lock
+update Ruby version in Gemfile to 2.7.2
+bundle
+bundle update
+rails db:{drop,create,migrate,seed} (for dev database)
+rails db:migrate RAILS_ENV=test (for test database)
+rspec
+```
 If you run into bundle issues then delete the `Gemfile.lock` and then run `bundle install`
 
 You may also find that the `rails db:migrate` command does not migrate the test database. If so, you can do this with:
@@ -33,13 +42,13 @@ rails db:migrate RAILS_ENV=test
 
 3. **You must not change the setup or expectations of any test.**
 
-4. Start with the top test within `spec/models/activerecord_obstacle_course_spec.rb` and work in order.
+4. Start with the top test within `spec/models` and work in order.
 
-5. To run your tests, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb`
+5. To run your tests, you can run `rspec spec/models`
 
-6. If you want to run one specific test, you can run `rspec spec/models/activerecord_obstacle_course_spec.rb:LINE_NUMBER`.
+6. If you want to run one specific test, you can run `rspec spec/models/<spec_file>.rb:<LINE_NUMBER>`.
 
-    * For example: `rspec spec/models/activerecord_obstacle_course_spec.rb:34`
+    * For example: `rspec spec/models/aroc_week_1_spec.rb:34`
 
 7. Most of the tests follow the same format...
 
